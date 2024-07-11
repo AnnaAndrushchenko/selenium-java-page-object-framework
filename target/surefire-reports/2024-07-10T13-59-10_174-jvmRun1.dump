@@ -1,0 +1,39 @@
+# Created on 2024-07-10T13:59:30.033
+java.util.ServiceConfigurationError: org.testng.ITestNGListener: Provider io.qameta.allure.testng.AllureTestNg could not be instantiated
+	at java.base/java.util.ServiceLoader.fail(ServiceLoader.java:586)
+	at java.base/java.util.ServiceLoader$ProviderImpl.newInstance(ServiceLoader.java:813)
+	at java.base/java.util.ServiceLoader$ProviderImpl.get(ServiceLoader.java:729)
+	at java.base/java.util.ServiceLoader$3.next(ServiceLoader.java:1403)
+	at org.testng.TestNG.addServiceLoaderListeners(TestNG.java:967)
+	at org.testng.TestNG.initializeConfiguration(TestNG.java:906)
+	at org.testng.TestNG.initializeEverything(TestNG.java:996)
+	at org.testng.TestNG.run(TestNG.java:1009)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:386)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:323)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:143)
+Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlElement
+	at com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector.<init>(JaxbAnnotationIntrospector.java:139)
+	at com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector.<init>(JaxbAnnotationIntrospector.java:126)
+	at io.qameta.allure.model.Allure2ModelJackson.createMapper(Allure2ModelJackson.java:26)
+	at io.qameta.allure.FileSystemResultsWriter.<init>(FileSystemResultsWriter.java:30)
+	at io.qameta.allure.AllureLifecycle.getDefaultWriter(AllureLifecycle.java:281)
+	at io.qameta.allure.AllureLifecycle.<init>(AllureLifecycle.java:47)
+	at io.qameta.allure.Allure.getLifecycle(Allure.java:30)
+	at io.qameta.allure.testng.AllureTestNg.<init>(AllureTestNg.java:119)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at java.base/java.util.ServiceLoader$ProviderImpl.newInstance(ServiceLoader.java:789)
+	... 12 more
+Caused by: java.lang.ClassNotFoundException: javax.xml.bind.annotation.XmlElement
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 26 more
+
+
